@@ -75,6 +75,9 @@
             <i class="material-icons mdc-chip__icon mdc-chip__icon--trailing" tabindex="0" role="button">cancel</i>
           </div>
         </div>
+        <button id="input-chip-set-remove-button" class="mdc-button mdc-button--dense">
+          Remove Last Chip
+        </button>
       </section>
 
       <section class="example">
@@ -239,6 +242,7 @@
         var chipSets = document.querySelectorAll('.mdc-chip-set:not(#input-chip-set)');
         var input = document.getElementById('input-chip-set-input');
         var inputButton = document.getElementById('input-chip-set-button');
+        var removeButton = document.getElementById('input-chip-set-remove-button');
 
         [].forEach.call(chipSets, function(chipSet) {
           mdc.chips.MDCChipSet.attachTo(chipSet);
@@ -281,7 +285,16 @@
           inputChipSetEl.removeChild(root);
         }
 
+        function removeLastChip(evt) {
+          if (evt.type === 'click' || evt.key === 'Enter' || evt.keyCode === 13) {
+            const lastChipIndex = inputChipSetComponent.chips.length - 1;
+            const lastChip = inputChipSetComponent.chips[lastChipIndex];
+            lastChip.exit();
+          }
+        };
+
         inputButton.addEventListener('click', addInputChip);
+        removeButton.addEventListener('click', removeLastChip);
         input.addEventListener('keydown', addInputChip);
         inputChipSetEl.addEventListener('MDCChip:removal', removeChip);
       });

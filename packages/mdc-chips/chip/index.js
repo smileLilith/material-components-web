@@ -89,6 +89,10 @@ class MDCChip extends MDCComponent {
     return this.foundation_;
   }
 
+  exit() {
+    this.root_.classList.add('mdc-chip--exit');
+  }
+
   /**
    * @return {!MDCChipFoundation}
    */
