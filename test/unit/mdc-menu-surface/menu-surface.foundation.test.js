@@ -22,7 +22,7 @@ import {captureHandlers, verifyDefaultAdapter} from '../helpers/foundation';
 import {setupFoundationTest} from '../helpers/setup';
 import {createMockRaf} from '../helpers/raf';
 import {MDCMenuSurfaceFoundation} from '../../../packages/mdc-menu-surface/foundation';
-import {cssClasses, strings, numbers, MenuSurfaceCorner} from '../../../packages/mdc-menu-surface/constants';
+import {cssClasses, strings, numbers, Corner} from '../../../packages/mdc-menu-surface/constants';
 
 function setupTest() {
   const {foundation, mockAdapter} = setupFoundationTest(MDCMenuSurfaceFoundation);
@@ -88,8 +88,8 @@ test('exports numbers', () => {
   assert.deepEqual(MDCMenuSurfaceFoundation.numbers, numbers);
 });
 
-test('exports MenuSurfaceCorner', () => {
-  assert.deepEqual(MDCMenuSurfaceFoundation.MenuSurfaceCorner, MenuSurfaceCorner);
+test('exports Corner', () => {
+  assert.deepEqual(MDCMenuSurfaceFoundation.Corner, Corner);
 });
 
 test('defaultAdapter returns a complete adapter implementation', () => {
@@ -167,7 +167,7 @@ testFoundation('#open from small anchor in center of viewport, default (TOP_STAR
 testFoundation('#open from small anchor in center of viewport, TOP_END anchor corner, RTL',
   ({foundation, mockAdapter, mockRaf}) => {
     initAnchorLayout(mockAdapter, smallCenter, true);
-    foundation.setAnchorCorner(MenuSurfaceCorner.TOP_END);
+    foundation.setAnchorCorner(Corner.TOP_END);
     foundation.open();
     mockRaf.flush();
     td.verify(mockAdapter.setTransformOrigin('right top'));
@@ -177,7 +177,7 @@ testFoundation('#open from small anchor in center of viewport, TOP_END anchor co
 testFoundation('#open from small anchor in center of viewport, BOTTOM_START anchor corner, RTL',
   ({foundation, mockAdapter, mockRaf}) => {
     initAnchorLayout(mockAdapter, smallCenter, true);
-    foundation.setAnchorCorner(MenuSurfaceCorner.BOTTOM_START);
+    foundation.setAnchorCorner(Corner.BOTTOM_START);
     foundation.open();
     mockRaf.flush();
     td.verify(mockAdapter.setTransformOrigin('right top'));
@@ -187,7 +187,7 @@ testFoundation('#open from small anchor in center of viewport, BOTTOM_START anch
 testFoundation('#open from small anchor in center of viewport, BOTTOM_END anchor corner, RTL',
   ({foundation, mockAdapter, mockRaf}) => {
     initAnchorLayout(mockAdapter, smallCenter, true);
-    foundation.setAnchorCorner(MenuSurfaceCorner.BOTTOM_END);
+    foundation.setAnchorCorner(Corner.BOTTOM_END);
     foundation.open();
     mockRaf.flush();
     td.verify(mockAdapter.setTransformOrigin('right top'));
@@ -206,7 +206,7 @@ testFoundation('#open from small anchor in top left of viewport, default (TOP_ST
 testFoundation('#open from small anchor in top left of viewport, TOP_END anchor corner, LTR',
   ({foundation, mockAdapter, mockRaf}) => {
     initAnchorLayout(mockAdapter, smallTopLeft);
-    foundation.setAnchorCorner(MenuSurfaceCorner.TOP_END);
+    foundation.setAnchorCorner(Corner.TOP_END);
     foundation.open();
     mockRaf.flush();
     td.verify(mockAdapter.setTransformOrigin('left top'));
@@ -216,7 +216,7 @@ testFoundation('#open from small anchor in top left of viewport, TOP_END anchor 
 testFoundation('#open from small anchor in top left of viewport, BOTTOM_START anchor corner, LTR',
   ({foundation, mockAdapter, mockRaf}) => {
     initAnchorLayout(mockAdapter, smallTopLeft);
-    foundation.setAnchorCorner(MenuSurfaceCorner.BOTTOM_START);
+    foundation.setAnchorCorner(Corner.BOTTOM_START);
     foundation.open();
     mockRaf.flush();
     td.verify(mockAdapter.setTransformOrigin('left top'));
@@ -226,7 +226,7 @@ testFoundation('#open from small anchor in top left of viewport, BOTTOM_START an
 testFoundation('#open from small anchor in top left of viewport, BOTTOM_END anchor corner, LTR',
   ({foundation, mockAdapter, mockRaf}) => {
     initAnchorLayout(mockAdapter, smallTopLeft);
-    foundation.setAnchorCorner(MenuSurfaceCorner.BOTTOM_END);
+    foundation.setAnchorCorner(Corner.BOTTOM_END);
     foundation.open();
     mockRaf.flush();
     td.verify(mockAdapter.setTransformOrigin('left top'));
@@ -245,7 +245,7 @@ testFoundation('#open from small anchor in right bottom of viewport, default (TO
 testFoundation('#open from small anchor in right bottom of viewport, TOP_END anchor corner, LTR',
   ({foundation, mockAdapter, mockRaf}) => {
     initAnchorLayout(mockAdapter, smallBottomRight);
-    foundation.setAnchorCorner(MenuSurfaceCorner.TOP_END);
+    foundation.setAnchorCorner(Corner.TOP_END);
     foundation.open();
     mockRaf.flush();
     td.verify(mockAdapter.setTransformOrigin('right bottom'));
@@ -255,7 +255,7 @@ testFoundation('#open from small anchor in right bottom of viewport, TOP_END anc
 testFoundation('#open from small anchor in right bottom of viewport, BOTTOM_START anchor corner, LTR',
   ({foundation, mockAdapter, mockRaf}) => {
     initAnchorLayout(mockAdapter, smallBottomRight);
-    foundation.setAnchorCorner(MenuSurfaceCorner.BOTTOM_START);
+    foundation.setAnchorCorner(Corner.BOTTOM_START);
     foundation.open();
     mockRaf.flush();
     td.verify(mockAdapter.setTransformOrigin('right bottom'));
@@ -265,7 +265,7 @@ testFoundation('#open from small anchor in right bottom of viewport, BOTTOM_STAR
 testFoundation('#open from small anchor in right bottom of viewport, BOTTOM_END anchor corner, LTR',
   ({foundation, mockAdapter, mockRaf}) => {
     initAnchorLayout(mockAdapter, smallBottomRight);
-    foundation.setAnchorCorner(MenuSurfaceCorner.BOTTOM_END);
+    foundation.setAnchorCorner(Corner.BOTTOM_END);
     foundation.open();
     mockRaf.flush();
     td.verify(mockAdapter.setTransformOrigin('right bottom'));
@@ -343,7 +343,7 @@ testFoundation('#open from small anchor in left bottom of viewport, default (TOP
 testFoundation('#open from small anchor in left bottom of viewport, TOP_END anchor corner, RTL',
   ({foundation, mockAdapter, mockRaf}) => {
     initAnchorLayout(mockAdapter, smallBottomLeft, true);
-    foundation.setAnchorCorner(MenuSurfaceCorner.TOP_END);
+    foundation.setAnchorCorner(Corner.TOP_END);
     foundation.open();
     mockRaf.flush();
     td.verify(mockAdapter.setTransformOrigin('left bottom'));
@@ -353,7 +353,7 @@ testFoundation('#open from small anchor in left bottom of viewport, TOP_END anch
 testFoundation('#open from small anchor in left bottom of viewport, BOTTOM_START anchor corner, RTL',
   ({foundation, mockAdapter, mockRaf}) => {
     initAnchorLayout(mockAdapter, smallBottomLeft, true);
-    foundation.setAnchorCorner(MenuSurfaceCorner.BOTTOM_START);
+    foundation.setAnchorCorner(Corner.BOTTOM_START);
     foundation.open();
     mockRaf.flush();
     td.verify(mockAdapter.setTransformOrigin('left bottom'));
@@ -363,7 +363,7 @@ testFoundation('#open from small anchor in left bottom of viewport, BOTTOM_START
 testFoundation('#open from small anchor in left bottom of viewport, BOTTOM_END anchor corner, RTL',
   ({foundation, mockAdapter, mockRaf}) => {
     initAnchorLayout(mockAdapter, smallBottomLeft, true);
-    foundation.setAnchorCorner(MenuSurfaceCorner.BOTTOM_END);
+    foundation.setAnchorCorner(Corner.BOTTOM_END);
     foundation.open();
     mockRaf.flush();
     td.verify(mockAdapter.setTransformOrigin('left bottom'));
@@ -373,7 +373,7 @@ testFoundation('#open from small anchor in left bottom of viewport, BOTTOM_END a
 testFoundation('#open tall surface from small anchor in left above middle of viewport, BOTTOM_START anchor corner, LTR',
   ({foundation, mockAdapter, mockRaf}) => {
     initAnchorLayout(mockAdapter, smallAboveMiddleLeft, false, 700);
-    foundation.setAnchorCorner(MenuSurfaceCorner.BOTTOM_START);
+    foundation.setAnchorCorner(Corner.BOTTOM_START);
     foundation.open();
     mockRaf.flush();
     td.verify(mockAdapter.setTransformOrigin('left top'));
@@ -384,7 +384,7 @@ testFoundation('#open tall surface from small anchor in left above middle of vie
 testFoundation('#open tall surface from small anchor in left below middle of viewport, BOTTOM_START anchor corner, LTR',
   ({foundation, mockAdapter, mockRaf}) => {
     initAnchorLayout(mockAdapter, smallBelowMiddleLeft, false, 700);
-    foundation.setAnchorCorner(MenuSurfaceCorner.BOTTOM_START);
+    foundation.setAnchorCorner(Corner.BOTTOM_START);
     foundation.open();
     mockRaf.flush();
     td.verify(mockAdapter.setTransformOrigin('left bottom'));
@@ -395,7 +395,7 @@ testFoundation('#open tall surface from small anchor in left below middle of vie
 testFoundation('#open from wide anchor center of viewport, TOP_START anchor corner, LTR',
   ({foundation, mockAdapter, mockRaf}) => {
     initAnchorLayout(mockAdapter, wideCenter);
-    foundation.setAnchorCorner(MenuSurfaceCorner.TOP_START);
+    foundation.setAnchorCorner(Corner.TOP_START);
     foundation.open();
     mockRaf.flush();
     td.verify(mockAdapter.setTransformOrigin('center top'));
@@ -405,7 +405,7 @@ testFoundation('#open from wide anchor center of viewport, TOP_START anchor corn
 testFoundation('#open from wide anchor center of viewport, TOP_END anchor corner, LTR',
   ({foundation, mockAdapter, mockRaf}) => {
     initAnchorLayout(mockAdapter, wideCenter);
-    foundation.setAnchorCorner(MenuSurfaceCorner.TOP_END);
+    foundation.setAnchorCorner(Corner.TOP_END);
     foundation.open();
     mockRaf.flush();
     td.verify(mockAdapter.setTransformOrigin('center top'));
@@ -415,7 +415,7 @@ testFoundation('#open from wide anchor center of viewport, TOP_END anchor corner
 testFoundation('#open from wide anchor center of viewport, BOTTOM_START anchor corner, RTL',
   ({foundation, mockAdapter, mockRaf}) => {
     initAnchorLayout(mockAdapter, wideCenter, true);
-    foundation.setAnchorCorner(MenuSurfaceCorner.BOTTOM_START);
+    foundation.setAnchorCorner(Corner.BOTTOM_START);
     foundation.open();
     mockRaf.flush();
     td.verify(mockAdapter.setTransformOrigin('center top'));
@@ -425,7 +425,7 @@ testFoundation('#open from wide anchor center of viewport, BOTTOM_START anchor c
 testFoundation('#open from wide anchor center of viewport, BOTTOM_END anchor corner, RTL',
   ({foundation, mockAdapter, mockRaf}) => {
     initAnchorLayout(mockAdapter, wideCenter, true);
-    foundation.setAnchorCorner(MenuSurfaceCorner.BOTTOM_END);
+    foundation.setAnchorCorner(Corner.BOTTOM_END);
     foundation.open();
     mockRaf.flush();
     td.verify(mockAdapter.setTransformOrigin('center top'));
@@ -435,7 +435,7 @@ testFoundation('#open from wide anchor center of viewport, BOTTOM_END anchor cor
 testFoundation('#open from wide anchor top left of viewport, TOP_END anchor corner, RTL',
   ({foundation, mockAdapter, mockRaf}) => {
     initAnchorLayout(mockAdapter, wideTopLeft, true);
-    foundation.setAnchorCorner(MenuSurfaceCorner.TOP_END);
+    foundation.setAnchorCorner(Corner.TOP_END);
     foundation.open();
     mockRaf.flush();
     td.verify(mockAdapter.setTransformOrigin('center top'));
@@ -445,7 +445,7 @@ testFoundation('#open from wide anchor top left of viewport, TOP_END anchor corn
 testFoundation('#open anchors the surface to the bottom left in LTR when not close to the bottom edge with margin',
   ({foundation, mockAdapter, mockRaf}) => {
     initAnchorLayout(mockAdapter, smallTopLeft);
-    foundation.setAnchorCorner(MenuSurfaceCorner.BOTTOM_START);
+    foundation.setAnchorCorner(Corner.BOTTOM_START);
     foundation.setAnchorMargin({left: 7, bottom: 10});
     foundation.open();
     mockRaf.flush();
@@ -456,7 +456,7 @@ testFoundation('#open anchors the surface to the bottom left in LTR when not clo
 testFoundation('#open anchors the surface to the bottom left in LTR when close to the bottom edge with margin',
   ({foundation, mockAdapter, mockRaf}) => {
     initAnchorLayout(mockAdapter, smallBottomLeft);
-    foundation.setAnchorCorner(MenuSurfaceCorner.BOTTOM_START);
+    foundation.setAnchorCorner(Corner.BOTTOM_START);
     foundation.setAnchorMargin({top: 5, left: 7, bottom: 10});
     foundation.open();
     mockRaf.flush();
@@ -467,7 +467,7 @@ testFoundation('#open anchors the surface to the bottom left in LTR when close t
 testFoundation('#open anchors the surface to the bottom left in RTL when close to the bottom & right edge with margin',
   ({foundation, mockAdapter, mockRaf}) => {
     initAnchorLayout(mockAdapter, smallBottomRight, true);
-    foundation.setAnchorCorner(MenuSurfaceCorner.BOTTOM_START);
+    foundation.setAnchorCorner(Corner.BOTTOM_START);
     foundation.setAnchorMargin({top: 5, bottom: 10, right: 7});
     foundation.open();
     mockRaf.flush();
